@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        .container{
+            border: 3px solid darkcyan;
+            width: 400px;
+            padding: 1px 10px 10px 30px;
+            margin: 100px;
+            margin-left: 400px;
+        }
+        input{
+            margin: 5px 50px;
+        }
+        button{
+            margin: 15px 140px;
+            padding: 10px 30px;
+        }
+        h2{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        {% if messages %}
+        {% for message in messages %}
+            <h5 style="background-color:azure;">{{message}}</h5>
+        {% endfor %}
+        {% endif %}
+        <form action="" method="POST">
+            {% csrf_token %}
+            <label for="uname">Username</label>
+            <input type="text" name="user_name" id="uname">
+            <br>
+            <label for="pass">Password</label>
+            <input type="password" name="passwordd" id="pass">
+            <br>
+            <label for="signup">Don't have an account Click <a href="{% url 'Signup' %}" id="signup">SignUp</a>
+            </label>
+            <br>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

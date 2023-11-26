@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp</title>
+    <style>
+        .container{
+            border: 3px solid darkcyan;
+            width: 450px;
+            padding: 1px 10px 10px 30px;
+            margin: 10px;
+            margin-left: 400px;
+        }
+        input{
+            margin: 5px 0;
+        }
+        button{
+            margin: 5px 140px;
+            padding: 10px 10px;
+        }
+        h2{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>SignUp</h2>
+        {% if messages %}
+        {% for message in messages %}
+            <h4 style="background-color:azure;">{{message}}</h4>
+        {% endfor %}
+        {% endif %}
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="user">User Type</label>
+            <select name="user_type" id="user">
+                <option value="doctor">Doctor</option>
+                <option value="patient">Patient</option>
+            </select>
+            <br>
+            <label for="fname">First Name</label>
+            <input type="text" name="first_name" id="fname">
+            <br>
+            <label for="lname">Last Name</label>
+            <input type="text" name="last_name" id="lname">
+            <br>
+            <label for="profile_pic">Profile Picture</label>
+            <input type="file" name="profile_picture" id="profile_pic">
+            <br>
+            <label for="uname">Username</label>
+            <input type="text" name="user_name" id="uname">
+            <br>
+            <label for="email">Email Id</label>
+            <input type="email" name="email_id" id="email">
+            <br>
+            <label for="pass">Password</label>
+            <input type="password" name="password" id="pass">
+            <br>
+            <label for="re_pass">Re-Enter Password</label>
+            <input type="password" name="re_password" id="re_pass">
+            <br>
+            <label for="address">Address</label>
+            <br>
+            <textarea name="address" id="address" cols="30" rows="10" placeholder="Enter your Address followed by City, State and Pincode"></textarea>
+            <br>
+            <label for="login">Already Have an account Click <a href="{% url 'Login' %}" id="login">Login</a>
+            </label>
+            <br>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
