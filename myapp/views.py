@@ -42,8 +42,6 @@ def Login(request):
             user_type=i.User_Type
         if user!=None:
             login(request, user)
-            print(user)
-            print(user_type)
             if user_type=='doctor':
                 return redirect("Doctor")
             elif user_type=='patient':
