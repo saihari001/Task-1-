@@ -33,11 +33,9 @@ def Signup(request):
     return render(request, "signup.html", locals())
 
 def Login(request):
-    user_name=request.POST.get("user_name")
-    print(user_name)
-    passwordd=request.POST.get("passwordd")
-    print(passwordd)
     if request.method == 'POST':
+        user_name=request.POST.get("user_name")
+        passwordd=request.POST.get("passwordd")
         user=authenticate(request, username=user_name, password=passwordd)
         get_data=SignUp.objects.filter(User_Name=user)
         for i in get_data:
